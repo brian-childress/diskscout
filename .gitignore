@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+.pytest_cache/
+.ruff_cache/
+.DS_Store
+
+# Scan output contains local paths; never commit it.
+reports/
+apply-*.json

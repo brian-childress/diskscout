@@ -1,0 +1,10 @@
+{
+  "project_roots": ["~/code", "~/Documents/Projects"],
+  "personal_roots": ["~/Documents", "~/Downloads", "~/Desktop", "~/Movies", "~/Music", "~/Pictures"],
+  "inactive_days": 30,
+  "protect": ["~/code/keep-this-forever"],
+  "dup_min_size": "1M",
+  "dir_dup_min_size": "10M",
+  "large_file_min": "500M",
+  "workers": 8
+}

@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "diskscout"
+dynamic = ["version"]
+description = "Find disk space a developer Mac can safely give back: stale dependencies, finished git worktrees, caches, duplicates. Read-only scans, Trash-first cleanup."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [{ name = "Brian Childress" }]
+keywords = ["disk", "cleanup", "storage", "macos", "node_modules", "git-worktree", "duplicates", "cli"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "Operating System :: MacOS",
+  "Operating System :: POSIX :: Linux",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Topic :: System :: Filesystems",
+  "Topic :: Utilities",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://brianchildress.co/tools/diskscout"
+Repository = "https://github.com/brian-childress/diskscout"
+Issues = "https://github.com/brian-childress/diskscout/issues"
+Changelog = "https://github.com/brian-childress/diskscout/blob/main/CHANGELOG.md"
+
+[project.scripts]
+diskscout = "diskscout.cli:main"
+
+[tool.setuptools.dynamic]
+version = { attr = "diskscout.__version__" }
+
+[tool.setuptools.packages.find]
+include = ["diskscout*"]
+
+[tool.ruff]
+line-length = 140
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "W", "B", "SIM", "PERF", "FLY", "RUF", "PLW1510"]
+# RUF001-3: typographic characters in UI strings are intentional.
+# PERF401/PERF203/SIM105: readability over micro-optimizations in non-hot paths.
+ignore = ["RUF001", "RUF002", "RUF003", "PERF401", "PERF203", "SIM105"]
